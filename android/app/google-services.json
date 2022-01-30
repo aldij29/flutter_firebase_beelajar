@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1029782324743",
+    "project_id": "beelajar-998c7",
+    "storage_bucket": "beelajar-998c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029782324743:android:066e23f2970f7cc3324ca2",
+        "android_client_info": {
+          "package_name": "com.glyphdev.beelajar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029782324743-0oe8bbgq6sqqb3rdm6rg8bt903n5qvs2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsMNhzRSxnoLQIAbGh7Mlpm337e1GsoaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029782324743-0oe8bbgq6sqqb3rdm6rg8bt903n5qvs2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029782324743:android:547d086984ed2c22324ca2",
+        "android_client_info": {
+          "package_name": "com.glyphdev.beelajar_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029782324743-0oe8bbgq6sqqb3rdm6rg8bt903n5qvs2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsMNhzRSxnoLQIAbGh7Mlpm337e1GsoaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029782324743-0oe8bbgq6sqqb3rdm6rg8bt903n5qvs2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
