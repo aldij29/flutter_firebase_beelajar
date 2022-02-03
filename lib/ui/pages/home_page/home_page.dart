@@ -138,34 +138,50 @@ class HomePage extends StatelessWidget {
     }
 
     Widget categorySection() {
-      return Container(
-        height: 140,
-        margin: EdgeInsets.only(top: 12),
-        child: Center(
-          child: StreamBuilder<QuerySnapshot>(
-            stream: category.orderBy('categoryCreated').snapshots(),
-            builder: (_, snapshot) {
-              if (snapshot.hasData) {
-                return ListView(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  children: snapshot.data!.docs
-                      .map(
-                        (e) => GestureDetector(
-                          onTap: () {},
-                          child: CustomCategoryCard(
-                            catName: (e.data() as dynamic)['titleCourse'],
-                          ),
-                        ),
-                      )
-                      .toList(),
-                );
-              } else {
-                return const Text("Loading...");
-              }
-            },
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 20,
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.only(left: 24),
+            child: Text(
+              'Category',
+              style: titleTextStyle.copyWith(fontSize: 20),
+            ),
+          ),
+          Container(
+            height: 130,
+            padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            margin: EdgeInsets.only(top: 12),
+            child: Center(
+              child: FutureBuilder<QuerySnapshot>(
+                future: category.orderBy('categoryCreated').get(),
+                builder: (_, snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      children: snapshot.data!.docs
+                          .map(
+                            (e) => GestureDetector(
+                              onTap: () {},
+                              child: CustomCategoryCard(
+                                catName: (e.data() as dynamic)['titleCourse'],
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    );
+                  } else {
+                    return Text("Loading...");
+                  }
+                },
+              ),
+            ),
+          ),
+        ],
       );
     }
 
@@ -180,42 +196,43 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.only(left: 24),
             child: Text(
               'Courses',
-              style: titleTextStyle,
+              style: titleTextStyle.copyWith(fontSize: 20),
             ),
           ),
           Container(
-            height: 260,
+            height: 330,
             width: 1000,
-            margin: EdgeInsets.only(top: 12),
-            child: Center(
-              child: StreamBuilder<QuerySnapshot>(
-                stream: courses.orderBy('courseCreated').snapshots(),
-                builder: (_, snapshot) {
-                  if (snapshot.hasData) {
-                    return ListView(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      children: snapshot.data!.docs
-                          .map(
-                            (e) => GestureDetector(
-                              onTap: () {},
-                              child: CustomCourseCard(
-                                titleCourse:
-                                    (e.data() as dynamic)['titleCourse'],
-                                mentorName:
-                                    (e.data() as dynamic)['mentorCourse'],
-                                hargaCourse:
-                                    (e.data() as dynamic)['hargaCourse'],
-                              ),
+            margin: EdgeInsets.only(
+              top: 12,
+            ),
+            child: FutureBuilder<QuerySnapshot>(
+              future: courses.get(),
+              builder: (_, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    children: snapshot.data!.docs
+                        .map(
+                          (e) => GestureDetector(
+                            onTap: () {},
+                            child: CustomCourseCard(
+                              titleCourse: (e.data() as dynamic)['titleCourse'],
+                              mentorName: (e.data() as dynamic)['mentorCourse'],
+                              hargaCourse: (e.data() as dynamic)['hargaCourse'],
+                              participant:
+                                  (e.data() as dynamic)['participantCourse'],
+                              urlThumbnail:
+                                  (e.data() as dynamic)['thumbnailCourse'],
                             ),
-                          )
-                          .toList(),
-                    );
-                  } else {
-                    return const Text("Loading...");
-                  }
-                },
-              ),
+                          ),
+                        )
+                        .toList(),
+                  );
+                } else {
+                  return Text("Loading...");
+                }
+              },
             ),
           )
         ],
@@ -229,7 +246,7 @@ class HomePage extends StatelessWidget {
         categorySection(),
         body(),
         SizedBox(
-          height: 1000,
+          height: 100,
         )
       ],
     );
