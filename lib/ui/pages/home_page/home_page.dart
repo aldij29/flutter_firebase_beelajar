@@ -224,6 +224,7 @@ class HomePage extends StatelessWidget {
                                   (e.data() as dynamic)['participantCourse'],
                               urlThumbnail:
                                   (e.data() as dynamic)['thumbnailCourse'],
+                              descCourse: (e.data() as dynamic)['description'],
                             ),
                           ),
                         )

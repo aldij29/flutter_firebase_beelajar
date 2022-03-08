@@ -31,9 +31,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 snapshot.data!.data() as Map<String, dynamic>;
             // return Text("Full Name: ${data['fullname']}");
             return Container(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               width: double.infinity,
               height: 300,
-              decoration: BoxDecoration(color: kPrimaryColor),
+              decoration: BoxDecoration(
+                  color: kPrimaryColor,
+                  borderRadius: BorderRadius.circular(18)),
               child: Center(
                 child: Stack(
                   children: [

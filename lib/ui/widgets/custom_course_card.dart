@@ -6,13 +6,15 @@ class CustomCourseCard extends StatelessWidget {
   final int hargaCourse;
   final int participant;
   final String urlThumbnail;
+  final String descCourse;
   const CustomCourseCard(
       {Key? key,
       required this.titleCourse,
       required this.mentorName,
       required this.hargaCourse,
       required this.participant,
-      required this.urlThumbnail})
+      required this.urlThumbnail,
+      required this.descCourse})
       : super(key: key);
 
   @override
@@ -78,6 +80,10 @@ class CustomCourseCard extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => DetailCoursePage(
                               urlThumbnail: urlThumbnail,
+                              courseName: titleCourse,
+                              hargaCourse: hargaCourse,
+                              mentorName: mentorName,
+                              description: descCourse,
                             )));
               },
               child: Container(

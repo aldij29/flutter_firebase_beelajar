@@ -31,7 +31,7 @@ class CustomCategoryCard extends StatelessWidget {
           ),
           Text(
             catName,
-            style: regularTextStyle.copyWith(fontWeight: semiBold),
+            style: regularTextStyle.copyWith(fontWeight: regular),
           )
         ],
       ),

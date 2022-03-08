@@ -7,3 +7,4 @@ import 'package:provider/src/provider.dart';
 part 'custom_nav_bar_item.dart';
 part 'custom_category_card.dart';
 part 'custom_course_card.dart';
+part 'custom_tab_menu_item.dart';
