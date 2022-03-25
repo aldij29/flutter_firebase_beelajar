@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 part of '../pages.dart';
 
 class DetailCoursePage extends StatelessWidget {
@@ -26,7 +28,7 @@ class DetailCoursePage extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Container(
-              margin: EdgeInsets.only(top: 8, left: 8),
+              margin: const EdgeInsets.only(top: 8, left: 8),
               width: 36,
               height: 36,
               decoration: BoxDecoration(
@@ -47,7 +49,7 @@ class DetailCoursePage extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Container(
-              margin: EdgeInsets.only(top: 8, right: 8),
+              margin: const EdgeInsets.only(top: 8, right: 8),
               width: 36,
               height: 36,
               decoration: BoxDecoration(
@@ -74,15 +76,14 @@ class DetailCoursePage extends StatelessWidget {
                 image: NetworkImage(urlThumbnail), fit: BoxFit.cover),
             borderRadius: BorderRadius.circular(defaultRadius)),
         child: Stack(
-          children: [Align(alignment: Alignment.topLeft)],
+          children: [const Align(alignment: Alignment.topLeft)],
         ),
       );
     }
 
     Widget judulCourse() {
-      return Expanded(
-          child: Container(
-        margin: EdgeInsets.only(top: 12, left: 24, right: 24),
+      return Container(
+        margin: const EdgeInsets.only(top: 12, left: 24, right: 24),
         child: Text(
           courseName +
               "sajkdlaks jdlasj dlaksjd lasd jla ksdj idbne iwunci lwenc wcnw kcnwe ;cknw sadas asdasdasd asd ass",
@@ -90,7 +91,7 @@ class DetailCoursePage extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
         ),
-      ));
+      );
     }
 
     Widget mentorCourse() {
@@ -123,9 +124,9 @@ class DetailCoursePage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CustomTabMenuItem(textItem: 'Description', index: 0),
-            CustomTabMenuItem(textItem: 'Lesson', index: 1),
-            CustomTabMenuItem(textItem: 'Review', index: 2),
+            const CustomTabMenuItem(textItem: 'Description', index: 0),
+            const CustomTabMenuItem(textItem: 'Lesson', index: 1),
+            const CustomTabMenuItem(textItem: 'Review', index: 2),
           ],
         ),
       );
@@ -134,56 +135,50 @@ class DetailCoursePage extends StatelessWidget {
     Widget buildContent(int currentIndex) {
       switch (currentIndex) {
         case 0:
-          return Container(
-            child: Text(
+          return  Text(
               description,
               style: regularTextStyle,
-            ),
-          );
+            );
         case 1:
-          return Container(
-            child: Text(
+          return Text(
               'Lesson',
               style: regularTextStyle,
-            ),
-          );
+            );
         case 2:
-          return Container(
-            child: Text(
+          return Text(
               'Review',
               style: regularTextStyle,
-            ),
-          );
+            );
         default:
-          return Container(
-            child: Text(
+          return Text(
               description,
               style: regularTextStyle,
-            ),
-          );
+            );
       }
     }
 
     return BlocBuilder<PageCubit, int>(builder: (context, currentIndex) {
       return Scaffold(
         backgroundColor: kBackgroundColor,
-        body: ListView(
-          children: [
-            //HEADER
-            header(),
-            //Thumbnail Course
-            thumbnailCourse(),
-            //Judul Course
-            judulCourse(),
-            //Mentor Course
-            mentorCourse(),
-            tabMenu(),
-            Padding(
-              padding: EdgeInsets.only(
-                  left: defaultMargin, right: defaultMargin, top: 16),
-              child: buildContent(currentIndex),
-            )
-          ],
+        body: SafeArea(
+          child: ListView(
+            children: [
+              //HEADER
+              header(),
+              //Thumbnail Course
+              thumbnailCourse(),
+              //Judul Course
+              judulCourse(),
+              //Mentor Course
+              mentorCourse(),
+              tabMenu(),
+              Padding(
+                padding: EdgeInsets.only(
+                    left: defaultMargin, right: defaultMargin, top: 16),
+                child: buildContent(currentIndex),
+              )
+            ],
+          ),
         ),
       );
     });

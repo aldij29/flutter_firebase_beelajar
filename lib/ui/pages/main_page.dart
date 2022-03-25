@@ -3,12 +3,7 @@ part of 'pages.dart';
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
-  Widget _header() {
-    return Container(
-      height: 80,
-      width: double.infinity,
-    );
-  }
+  
 
   Widget _bottomNavBar() {
     return Align(
@@ -66,7 +61,7 @@ class MainPage extends StatelessWidget {
         body: SafeArea(
           child: Stack(
             children: [
-              _header(),
+              // _header(),
               const SizedBox(
                 height: 12,
               ),
