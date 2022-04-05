@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
             Container(
               width: 40,
               height: 40,
-              child: Icon(Icons.notifications),
+              child: Icon(Icons.notifications, color: kPrimaryColor,),
             )
           ],
         ),
@@ -63,10 +63,14 @@ class HomePage extends StatelessWidget {
                 width: double.infinity,
                 height: 160,
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                         begin: Alignment.bottomRight,
                         end: Alignment.topLeft,
-                        colors: [Colors.yellow, Colors.orange]),
+                        colors: [
+                          Color(0xffFFE69E),
+                          Color(0xffFFC16F),
+                          Color(0xffFFA86B),
+                        ]),
                     borderRadius: BorderRadius.circular(defaultRadius)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -141,7 +145,7 @@ class HomePage extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -152,7 +156,6 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Container(
-            height: 130,
             padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
             margin: EdgeInsets.only(top: 12),
             child: Center(
@@ -189,7 +192,7 @@ class HomePage extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
           Padding(
@@ -202,7 +205,7 @@ class HomePage extends StatelessWidget {
           Container(
             height: 330,
             width: 1000,
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               top: 12,
             ),
             child: FutureBuilder<QuerySnapshot>(
@@ -231,7 +234,7 @@ class HomePage extends StatelessWidget {
                         .toList(),
                   );
                 } else {
-                  return Text("Loading...");
+                  return const Text("Loading...");
                 }
               },
             ),
@@ -246,7 +249,7 @@ class HomePage extends StatelessWidget {
         bannerTop(),
         categorySection(),
         body(),
-        SizedBox(
+        const SizedBox(
           height: 100,
         )
       ],
